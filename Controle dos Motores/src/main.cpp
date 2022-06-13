@@ -13,10 +13,10 @@ void setup() {
     Ps3.begin("94:b9:7e:d5:ab:e2");  //  inicializa o controle que possui o endereço MAC especificado no parâmetro
 
     myservoL.attach(27);  //  inicializa o Servo Motor na porta digital 27
-    myservoR.attach(26);  //  inicializa o Servo Motor na porta digital 27
+    myservoR.attach(26);  //  inicializa o Servo Motor na porta digital 26
 
-    myservoL.write(2);  //  e escreve um ângulo de 2 graus nele
-    myservoR.write(2);  //  e escreve um ângulo de 2 graus nele
+    myservoL.write(2);  //  e escreve um ângulo de 2 graus neles
+    myservoR.write(2);  //  
 
     Serial.println("Ready.");
 }
@@ -24,7 +24,7 @@ void setup() {
 void loop() {
     leftXAxis = map(Ps3.data.analog.stick.lx, -128, 127, 2, 181);  // transforma os valores do analógico para ângulo
 
-    rightXAxis = map(Ps3.data.analog.stick.rx, -128, 127, 2, 181);  // transforma os valores do analógico para ângulo
+    rightXAxis = map(Ps3.data.analog.stick.rx, -128, 127, 2, 181);
 
     Serial.print(Ps3.data.analog.stick.lx);
     Serial.print(" || ");
@@ -39,7 +39,7 @@ void loop() {
 
     myservoL.write(leftXAxis);  //  escreve o valor convertido no Servo
 
-    myservoR.write(rightXAxis);  //  escreve o valor convertido no Servo
+    myservoR.write(rightXAxis);
 
     /*
 
